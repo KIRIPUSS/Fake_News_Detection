@@ -1,0 +1,27 @@
+# Python 
+__pycache__/ 
+*.pyc 
+*.pyo 
+venv/ 
+env/ 
+ 
+# Flask 
+instance/ 
+*.db 
+*.sqlite 
+*.sqlite3 
+ 
+# Large Dataset Files 
+Datasets/*.csv 
+!Datasets/manual_testing.csv 
+ 
+# Videos 
+*.mp4 
+*.avi 
+ 
+# Jupyter Notebooks 
+.ipynb_checkpoints/ 
+ 
+# OS 
+.DS_Store 
+Thumbs.db 

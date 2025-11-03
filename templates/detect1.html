@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.9.13, a.mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="../static/images/photo-1605648916361-9bc12ad6a569.jpeg" type="image/x-icon">
+  <meta name="description" content="Interface for detecting fake news using machine learning.">
+  <title>Détecteur de fausses nouvelles</title>
+  <link rel="stylesheet" href="https://r.mobirisesite.com/465640/assets/web/assets/mobirise-icons2/mobirise2.css?rnd=1716587660468">
+  <link rel="stylesheet" href="https://r.mobirisesite.com/465640/assets/bootstrap/css/bootstrap.min.css?rnd=1716587660468">
+  <link rel="stylesheet" href="https://r.mobirisesite.com/465640/assets/bootstrap/css/bootstrap-grid.min.css?rnd=1716587660468">
+  <link rel="stylesheet" href="https://r.mobirisesite.com/465640/assets/bootstrap/css/bootstrap-reboot.min.css?rnd=1716587660468">
+  <link rel="stylesheet" href="https://r.mobirisesite.com/465640/assets/dropdown/css/style.css?rnd=1716587660468">
+  <link rel="stylesheet" href="https://r.mobirisesite.com/465640/assets/theme/css/style.css?rnd=1716587660468">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;700&display=swap&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;700&display=swap&display=swap"></noscript>
+  <link rel="stylesheet" href="https://r.mobirisesite.com/465640/assets/css/mbr-additional.css?rnd=1716587660468" type="text/css">
+  
+  <style>
+    .center-button {
+    display: flex;
+    justify-content: center;
+}
+    .btn-primary {
+        font-size: 30px; /* Adjust the font size as needed */
+        padding: 10px 20px; /* Adjust the padding as needed */
+    }
+
+    .navbar-dropdown {
+  padding: 0 1rem;
+  width: 15%; 
+  min-width: 250px; 
+  margin: 1 auto; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.45s ease;
+  z-index: 1030;
+  background: #282828;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  white-space: nowrap; 
+}
+
+.navbar-dropdown .navbar-brand {
+  margin-left: 0; 
+}
+
+.navbar-dropdown .navbar-brand img {
+  height: 3.125rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-dropdown .navbar-caption {
+  font-weight: 700;
+  white-space: nowrap; 
+  vertical-align: -4px;
+  line-height: 3.125rem !important;
+  color: white; 
+}
+
+.navbar-dropdown .navbar-caption, .navbar-dropdown .navbar-caption:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (max-width: 576px) {
+  .navbar-dropdown {
+    width: 100%; 
+  }
+}
+
+
+
+  </style>
+  
+</head>
+<body>
+  
+  <section data-bs-version="5.1" class="menu menu2 cid-udJl3CyIQt" once="menu" id="menu-5-udJl3CyIQt">
+	<nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+		<div class="container">
+			<div class="navbar-brand">
+				<span class="navbar-logo">
+					<a href="{{url_for('home')}}">
+						<img src="../static/images/photo-1605648916361-9bc12ad6a569.jpeg" alt="Mobirise Website Builder" style="height: 4.3rem;">
+					</a>
+				</span>
+				<span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href="{{url_for('home')}}">TruthAI</a></span>
+			</div>
+			 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			 </div> 
+		</div>
+	</nav>
+</section>
+
+<section data-bs-version="5.1" class="header18 cid-udJl3CAL4T mbr-fullscreen" data-bg-video="../static/Video.mp4" id="hero-16-udJl3CAL4T">
+  
+
+  <div class="mbr-overlay" style="opacity: 0.4; background-color: rgb(0, 0, 0);"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="content-wrap col-12 col-md-12">
+        <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-4 display-1">
+          <strong>TruthAI</strong>
+        </h1>
+        
+        <p class="mbr-fonts-style mbr-text mbr-white mb-4 display-7">Libérez la puissance du Machine Learning pour détecter instantanément les vraies ou fausses nouvelles !</p>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- the user area -->
+
+<section style="background-color: rgb(214, 208, 214);" data-bs-version="5.1" class="article2 cid-udJl3CAprJ">
+  <div class="container">
+    <h1 class="mbr-section-title mbr-fonts-style mb-4 display-2 center-button">
+      <strong>Essayez notre modèle</strong>
+    </h1>
+      <form action="{{ url_for('detect') }}" method="post">
+        <div class="form-group">
+          <label for="in-text"></label>
+          <textarea  name="in-text" class="form-control" id="exampleFormControlTextarea1" rows="8" placeholder="Veuillez insérer votre texte ici..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="web-link"></label>
+          <input type="url" name="web-link" class="form-control" id="web-link" placeholder="Entrez l’URL de l’article...">
+        </div>
+        <div class="center-button navbar-buttons mbr-section-btn">
+          <button type="submit" name="submit" class="btn btn-primary">Déposer</button>
+      </div>
+      </form>
+  </div>
+</section>
+
+<section style="background-color: rgb(214, 208, 214);" data-bs-version="5.1" class="article2 cid-udJl3CAprJ">
+  <div class="container">
+    {% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        {% if prediction_text %}
+        <div class="alert alert-{{ 'success' if prediction_text == 'Vraies Nouvelles' else 'danger' }}" role="alert">
+            <h1><strong>Le résultat est: {{ prediction_text }}</strong></h1>
+            <p><strong>La probabilité que les nouvelles soient réelles: {{ real_prediction_proba }}%</strong></p>
+            <p><strong>La probabilité que la nouvelle soit fausse: {{ fake_prediction_proba }}%</strong></p>
+        </div>
+        {% endif %}
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+          <h3>Aucune entrée fournie!!</h3>
+        </div>
+        {% endif %}
+        {% if error1 %}
+        <div class="alert alert-danger" role="alert">
+          <h3>Ne peut pas mettre les deux!!</h3>
+        </div>
+        {% endif %}
+        {% if error2 %}
+        <div class="alert alert-danger" role="alert">
+          <h3>On peut pas extracter l'Article!!</h3>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+  </div>
+</section>
+
+
+
+
+<section data-bs-version="5.1" class="features03 cid-udJl3CBmCl" id="news-1-udJl3CBmCl">
+  
+  
+  <div class="container-fluid">
+    <div class="row justify-content-center mb-5">
+      <div class="col-12 content-head">
+        <div class="mbr-section-head">
+          <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+            <strong>Dernières Nouvelles</strong>
+          </h4>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="item features-image col-12 col-md-6 col-lg-3 active">
+        <div class="item-wrapper">
+          <div class="item-img mb-3">
+            <img src="../static/assets/images/photo-1508921340878-ba53e1f016ec.jpeg" alt="Mobirise Website Builder" title="">
+          </div>
+          <div class="item-content align-left">
+            <h5 class="item-title mbr-fonts-style mt-0 mb-2 display-5">
+              <strong>Flash Special Alerte!</strong>
+            </h5>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">May 24, 2024</p>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">Nouvelle percée dans la technologie de détection des fausses nouvelles - gardez une longueur d’avance sur les mensonges!</p>
+            <div class="mbr-section-btn item-footer">
+              <a href="https://www.futura-sciences.com/tech/actualites/technologie-nouvelle-technologie-tres-efficace-detecter-mensonges-94959/" target="_blank" class="btn item-btn btn-primary display-7">Explorer</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item features-image col-12 col-md-6 col-lg-3">
+        <div class="item-wrapper">
+          <div class="item-img mb-3">
+            <img src="../static/assets/images/photo-1444653614773-995cb1ef9efa.jpeg" alt="Mobirise Website Builder" title="" data-slide-to="1" data-bs-slide-to="1">
+          </div>
+          <div class="item-content align-left">
+            <h5 class="item-title mbr-fonts-style mb-2 mt-0 display-5">
+              <strong>Démasquer la tromperie</strong>
+            </h5>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">May 23, 2024</p>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">Découvrez les secrets de la détection des fausses nouvelles et protégez-vous de la désinformation!</p>
+            <div class="mbr-section-btn item-footer">
+              <a href="https://www.internetsanscrainte.fr/dossiers/fabrique-de-linformation-0/conseils/fake-news-5-reflexes-adopter-pour-les-reperer" target="_blank" class="btn item-btn btn-primary display-7">Explorer</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item features-image col-12 col-md-6 col-lg-3">
+        <div class="item-wrapper">
+          <div class="item-img mb-3">
+            <img src="../static/assets/images/photo-1510137221422-879a9f7d2ba0.jpeg" alt="Mobirise Website Builder" title="" data-slide-to="2" data-bs-slide-to="2">
+          </div>
+          <div class="item-content align-left">
+            <h5 class="item-title mbr-fonts-style mb-2 mt-0 display-5">
+              <strong>Vérité</strong>
+            </h5>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">May 22, 2024</p>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">Démêlez les mystères de l’apprentissage automatique dans la lutte contre les fausses nouvelles - une lecture incontournable!</p>
+            <div class="mbr-section-btn item-footer">
+              <a href="https://dataanalyticspost.com/analyser-les-textes-grace-au-nlp/" target="_blank" class="btn item-btn btn-primary display-7">Explorer</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item features-image col-12 col-md-6 col-lg-3">
+        <div class="item-wrapper">
+          <div class="item-img mb-3">
+            <img src="../static/assets/images/photo-1540575467063-178a50c2df87.jpeg" alt="Mobirise Website Builder" title="" data-slide-to="2" data-bs-slide-to="2">
+          </div>
+          <div class="item-content align-left">
+            <h5 class="item-title mbr-fonts-style mb-2 mt-0 display-5">
+              <strong>Restez alerte, restez intelligent</strong>
+            </h5>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">May 21, 2024</p>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">Donnez-vous le pouvoir de la connaissance et soyez le gardien contre la propagation de fausses informations!</p>
+            <div class="mbr-section-btn item-footer">
+              <a href="https://www.vie-publique.fr/eclairage/24108-fausses-nouvelles-manipulation-comment-lutter-contre-les-fake-news" target="_blank" class="btn item-btn btn-primary display-7">Explorer</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-bs-version="5.1" class="article01 cid-udJl3CBcPF" id="generic-text-1-udJl3CBcPF">
+	
+
+	
+	
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="card col-md-12 col-lg-10">
+				<div class="card-wrapper">
+					<div class="row">
+						<div class="image-wrapper col-12 col-sm-6 justify-content-center">
+							<img src="../static/assets/images/photo-1504711434969-e33886168f5c.jpeg" alt="Mobirise Website Builder">
+						</div>
+						<div class="image-wrapper col-12 col-sm-6 justify-content-center">
+							<img src="../static/assets/images/photo-1504711331083-9c895941bf81.jpeg" alt="Mobirise Website Builder">
+						</div>
+					</div>
+
+					<div class="card-box align-left mb-3 card-content-text">
+						<h4 class="card-title mbr-fonts-style mbr-white mb-0 display-5">
+							<strong>Bienvenue au Domaine de la Vérité</strong>
+						</h4>
+						<p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">Entrez dans le domaine de la recherche de la vérité avec notre détecteur de fausses nouvelles de pointe. Découvrez les mensonges cachés et embrassez le pouvoir de la connaissance.</p>
+
+						<p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">Avec une simple saisie de texte et un clic sur un bouton, assistez à la magie du machine learning qui révèle l’authenticité des actualités en temps réel.</p>
+
+						<p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">Restez informé, restez vigilant. Explorez les dernières nouvelles et armez-vous des outils pour lutter contre la désinformation. Laissez le voyage vers la vérité commencer!</p>
+
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section data-bs-version="5.1" class="footer4 cid-udJl3CDb48" once="footers" id="footer-4-udJl3CDb48">
+
+    
+
+    
+
+    <div class="container">
+        <div class="media-container-row align-center mbr-white">
+            <div class="col-12">
+                <p class="mbr-text mb-0 mbr-fonts-style display-7">© 2024 Détection de fausses nouvelles. Tous droits réservésf.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="../static/assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="../static/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="../static/assets/ytplayer/index.js"></script>
+  <script src="../static/assets/dropdown/js/navbar-dropdown.js"></script>
+  <script src="../static/assets/vimeoplayer/player.js"></script>
+  <script src="../static/assets/embla/embla.min.js"></script>
+  <script src="../static/assets/embla/script.js"></script>
+  <script src="../static/assets/theme/js/script.js"></script>
+  
+  
+  
+</body>
+</html>
